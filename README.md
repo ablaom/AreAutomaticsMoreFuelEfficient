@@ -59,8 +59,8 @@ For details of the following analysis, see the Julia notebook in the Appendix.
 
 5. I decide to apply two standard quantitative methods: (i) Bootstrap
    confidence interval for the difference in medians of the underlying
-   pdfs; and (ii) Welch t-test for the null hypothesis "The underlying
-   pdfs of both samples have the same median". The advantage of method
+   pdfs; and (ii) Welch t-test for the **null hypothesis, "The underlying
+   pdfs of both samples have the same median".** The advantage of method
    (i) is that I don't need to make assumptions about the underlying
    probability distributions; the disadvantage is that it is only
    asymptotically exact (and our sample sizes are small). The
