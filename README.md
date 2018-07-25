@@ -292,8 +292,7 @@ julia> boxcoxM.scheme # the Box-Cox parameters
 ````
 
 So the optimal transformation (encoded in `boxcoxM`) is 
-
-<img src="https://rawgit.com/in	git@github.com:ablaom/AreAutomaticsMoreFuelEfficient/master/svgs/1c04fc075e4dd6ddfab87b086ea26348.svg?invert_in_darkmode" align=middle width=89.01453pt height=33.42009pt/>
+`x -> (x^{0.22} - 1)/0.22.`
 
 Now let us transform and retest for normality:
 
