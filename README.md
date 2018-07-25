@@ -120,7 +120,8 @@ for normal distributions the two notions coincide.
 ## Appendix. Julia notebook for computations and plots
 
 In this project I used Julia for the analysis, together with some
-standard stats/ML libraries and my own ML library `Koala`.
+standard stats/ML libraries and my own ML library `Koala`. In the past
+I have generally used Python.
 
 
 ### Load libraries and get data
