@@ -293,7 +293,7 @@ julia> boxcoxM.scheme # the Box-Cox parameters
 
 So the optimal transformation (encoded in `boxcoxM`) is 
 
-$$ x \mapsto \frac{x^{0.22} - 1}{0.22} .$$
+\$ x \mapsto \frac{x^{0.22} - 1}{0.22} .\$
 
 Now let us transform and retest for normality:
 
