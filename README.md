@@ -48,7 +48,7 @@ For details of the following analysis, see the Julia notebook in the Appendix.
    reveals that the median fuel efficiency is higher in the automatic
    sample). To get a quick qualitative insight into the question at
    hand, I construct 100,000 bootstrap samples from each sample and
-   plot histograms of the bootstrap medians
+   plot histograms of the bootstrap medians:
 
    ![](figures/plt3.png)
    
@@ -100,28 +100,38 @@ For details of the following analysis, see the Julia notebook in the Appendix.
    is the transformation we applied to our data before performing the
    t-test. 
    
-   Applying Welch's two-sample t-test (to the supplied data, transformed) we  obtained a p-value of about
-   0.0008, which is strong evidence to reject the null-hypothesis. In
-   plainer language: **If transmission type makes *no*
-   difference to fuel efficiency, then the probability that we could
-   have obtained the sample observed, or a more extreme sample, is about 1
-   in 1000.**
+   Applying Welch's two-sample t-test (to the supplied data,
+   transformed) we obtained a p-value of about 0.0008, which is strong
+   evidence to reject the null-hypothesis. In plainer language: **If
+   transmission type makes *no* difference to fuel efficiency, then
+   the probability that we could have obtained the sample observed, or
+   a more extreme sample, is about 1 in 1000.**
    
    
-8. Despite the technical assumptions necessary to make our analysis, the clear conclusion of both methods is the same: **Automatic cars are more efficient than manual ones.**
+8. Despite the technical assumptions necessary to make our analysis,
+   the clear conclusion of both methods is the same: **Automatic cars
+   are more efficient than manual ones.**
    
-*Technical note:* The t-test applies to *means* not *medians*; however  our transformations map the median to the transform of the median, and for normal distributions the two notions coincide.
+*Technical note:* The t-test applies to *means* not *medians*; however
+our transformations map the median to the transform of the median, and
+for normal distributions the two notions coincide.
 
 
 ## Appendix. Julia notebook for computations and plots
 
 ### Load libraries and get data
        
-````julia julia> using Koala # Author's stats/ML environment julia>
-using KoalaTransforms julia> import KoalaTransforms.normality julia>
-using DataFrames julia> using CSV julia> using StatsBase julia> using
-HypothesisTests julia> using Plots julia> using StatPlots julia>
-pyplot() # use python plotting backend Plots.PyPlotBackend()
+````julia 
+julia> using Koala # Author's stats/ML environment 
+julia> using KoalaTransforms 
+julia> import KoalaTransforms.normality 
+julia> using DataFrames 
+julia> using CSV 
+julia> using StatsBase 
+julia> using HypothesisTests 
+julia> using Plots 
+julia> using StatPlots 
+julia> pyplot() # use python plotting backend Plots.PyPlotBackend()
 
 julia> cars = CSV.read("data/cars_data.csv");
 ````
