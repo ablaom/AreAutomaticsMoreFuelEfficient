@@ -8,7 +8,7 @@ Given a [table](data/) of characteristics for 32 automobiles, investigate
 whether or not the transmission type influences an automobile's fuel
 efficiency.
 
-## Conclusions (executive summary)
+## Executive summary
 
 A qualitative and quantitative statistical analysis of the data
 provided suggests that automatic cars have better fuel economy than
@@ -22,14 +22,15 @@ mild nature.
 
 For details of the following analysis, see the Julia notebook in the Appendix.
 
-1. As the problem here is fairly well-formulated, further
-   consultation with the client was not deemed necessary. 
+1. *Problem interpretation.* I assume that "transmission type" refers
+   to whether a car is manual or automatic. "Fuel efficiency" refers
+   to distance travelled per unit of fuel (miles per gallon).
 
-2. *Identify relevant variables.* The supplied data already includes the
-   fuel efficiency of cars in miles per gallon, denoted `mpg` below, and
-   the transmission type of each car, automatic or manual, denoted
-   `am`. It was difficult to see how the other characteristics could add
-   further information and they were consequently ignored.
+2. *Identify relevant variables.* The supplied data already includes
+   the miles per gallon, denoted `mpg`, and the transmission type,
+   `am`, of cars. It was difficult to see how the other
+   characteristics could add further information and they were
+   consequently ignored.
 
 3. The "target" variable `mpg` is continuous and the "independent"
    variable `ac` is boolean. There are several very well-known
@@ -80,10 +81,10 @@ For details of the following analysis, see the Julia notebook in the Appendix.
    sample size is small, I shall look to my second method for
    confirmation.
 
-7. *t-test.* For it to be an exact test, Welch t-test
-   requires that we assume the underlying pdfs are normal, although it
-   has been empirically observed that the test is somewhat robust to
-   deviations to normality. In fact strictly positive-valued
+7. *t-test.* For it to be an exact test, Welch t-test requires that we
+   assume the underlying pdfs are normal. The test is somewhat robust
+   to deviations to normality, but only provided the sample size is
+   reasonable (say, more than 50). In fact, positive-valued
    continuous data cannot be perfectly normal and previous experience
    suggests the data will be skewed and that a log transformation
    would probably make the data more normal. However, with such a
@@ -93,7 +94,7 @@ For details of the following analysis, see the Julia notebook in the Appendix.
    To settle the issue, we decided to search for larger but similar
    data elsewhere and in fact found fuel efficiency data for for about
    400 automobiles
-   [elsewhere](https://github.com/RodolfoViana/exploratory-data-analysis-dataset-cars).
+   [here](https://github.com/RodolfoViana/exploratory-data-analysis-dataset-cars).
    In this case we found that a log transformation indeed improved
    normality. Although probably overkill for this problem, we went on
    to find the Box-Cox transformation optimizing a normality measure
@@ -279,6 +280,10 @@ julia> mpg_big = multi[:mpg];
 julia> length(mpg_big)
 398
 ````
+
+We define "normality" of a sample as the correlation between an *ordered*
+standardized version of the sample, and the expected ordered sample of
+the same size from the standard normal distribution. 
 
 How normal is the data to begin with?
 
