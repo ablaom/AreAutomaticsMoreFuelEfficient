@@ -80,7 +80,7 @@ For details of the following analysis, see the Julia notebook in the Appendix.
    sample size is small, I shall look to my second method for
    confirmation.
 
-7. *t-test.* For it to be an exact test, the two-sided, two-sample Welch t-test
+7. *t-test.* For it to be an exact test, Welch t-test
    requires that we assume the underlying pdfs are normal, although it
    has been empirically observed that the test is somewhat robust to
    deviations to normality. In fact strictly positive-valued
@@ -101,12 +101,12 @@ For details of the following analysis, see the Julia notebook in the Appendix.
    transformations) and this is the transformation we applied to our
    two original samples before performing the t-test.
    
-   Applying Welch's two-sample t-test to the two transformed samples,
-   we obtained a p-value of about 0.0008, which is strong evidence to
-   reject the null-hypothesis. In plainer language: **If transmission
-   type makes *no* difference to fuel efficiency, then the probability
-   that we could have obtained the sample observed, or a more extreme
-   sample, is about 1 in 1000.**
+   Applying Welch's two-sided, two-sample t-test to the two
+   transformed samples, we obtained a p-value of about 0.0008, which
+   is strong evidence to reject the null-hypothesis. In plainer
+   language: **If transmission type makes *no* difference to fuel
+   efficiency, then the probability that we could have obtained the
+   sample observed, or a more extreme sample, is about 1 in 1000.**
    
    
 8. Although some assumptions were necessary to make our analysis,
