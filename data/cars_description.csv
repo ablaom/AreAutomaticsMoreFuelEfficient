@@ -1,0 +1,14 @@
+This file describes the different columns in the cars_data data set,
+,
+Column name,Description
+mpg,Miles per gallon
+cyl,Number of cylinders
+disp,Displacement (cubic inch)
+hp,Gross horsepower
+drat,Rear axle ratio
+wt,Weight (1000 lbs)
+qsec,1/4 mile time
+vs,"Engine shape (0 = V engine, 1 = straight engine)"
+am,"Transmission (0 = automatic, 1 = manual)"
+gear,Number of forward gears
+carb,Number of carburetors
