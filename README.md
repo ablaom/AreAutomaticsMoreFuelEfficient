@@ -32,12 +32,13 @@ For details of the following analysis, see the Julia notebook in the Appendix.
    further information and they were consequently ignored.
 
 3. The "target" variable `mpg` is continuous and the "independent"
-   variable `ac` is boolean. There are several very
-   well-known statistical methods to determine whether a boolean variable
-   effects a continuous one, and we should expect to
-   either: (i) decide that indeed transmission type effects fuel
-   efficiency, or (ii) be unable to decide if transmission type
-   effects fuel efficiency without acquiring more data.
+   variable `ac` is boolean. There are several very well-known
+   statistical methods to determine whether a boolean variable effects
+   a continuous one. Applying these we expect to be able to: (i)
+   determine that indeed transmission type effects fuel efficiency, or
+   (ii) conclude that any difference in fuel efficiency in the two
+   transmission types is not statistically significant in the data
+   provided, but might be detectable with more data.
    
 4. *Preliminary qualitative analysis.* Proceeding along standard lines, I
    split the `mpg` samples into two samples, one for manual cars and
