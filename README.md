@@ -4,7 +4,7 @@ Anthony Blaom, July 2018
 
 ## The brief
 
-Given a table of characteristics for 32 automobiles, investigate
+Given a [table](data/) of characteristics for 32 automobiles, investigate
 whether or not the transmission type influences an automobile's fuel
 efficiency.
 
