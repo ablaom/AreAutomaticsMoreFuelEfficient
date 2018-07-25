@@ -18,7 +18,7 @@ more generally (no sampling bias) and under additional technical
 assumptions of a mild nature.
 
 
-## Analysis and outline of process
+## Analysis 
 
 For details of the following analysis, see the Julia notebook in the Appendix.
 
