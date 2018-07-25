@@ -1,4 +1,4 @@
-# Exercise for Data Analyst positions at MPI
+# Are automatic cars more fuel efficient?
 
 Anthony Blaom, July 2018
 
