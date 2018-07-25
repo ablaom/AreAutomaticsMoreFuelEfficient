@@ -11,7 +11,7 @@ efficiency.
 ## Conclusions (executive summary)
 
 A qualitative and quantitative statistical analysis of the data
-provided suggests that automatic cars have better fuel economy that
+provided suggests that automatic cars have better fuel economy than
 cars with a manual transmission. These conclusions are drawn under the
 assumption that the supplied data is a fair representation of cars
 more generally (no sampling bias) and under additional technical
@@ -43,24 +43,26 @@ For details of the following analysis, see the Julia notebook in the Appendix.
    split the `mpg` samples into two samples, one for manual cars and
    one for the automatic cars. These are roughly balanced samples
    (sized 19 and 13 respectively) but of relatively small size. To get
-   a rough feel for the data I do a labelled [gitter
+   a rough feel for the data I do a labeled [jitter
    plot](figures/plt1.png) and a [box plot](figures/plt2.png) (which
    reveals that the median fuel efficiency is higher in the automatic
    sample). To get a quick qualitative insight into the question at
    hand, I construct 100,000 bootstrap samples from each sample and
-   plot histograms of the bootsrtap medians
-![](figures/plt3.png)
+   plot histograms of the bootstrap medians
+
+   ![](figures/plt3.png)
+   
    The clear separation of the two histograms suggests to me that
    automatic cars indeed have better fuel efficiency.
 
 5. I decide to apply two standard quantitative methods: (i) Bootstrap
    confidence interval for the difference in medians of the underlying
-   pdfs; and (ii) Walsh t-test for the null hypothesis "The underlying
+   pdfs; and (ii) Welch t-test for the null hypothesis "The underlying
    pdfs of both samples have the same median". The advantage of method
    (i) is that I don't need to make assumptions about the underlying
-   probality distributions; the disadvantage is that it is only
+   probability distributions; the disadvantage is that it is only
    asymptotically exact (and our sample sizes are small). The
-   advantage of (ii) is that is an exact test, but it assmumes the
+   advantage of (ii) is that is an exact test, but it assumes the
    underlying pdfs are normally distributed.
    
 6. *Bootstrap confidence intervals.* I construct pivotal and
@@ -77,9 +79,9 @@ For details of the following analysis, see the Julia notebook in the Appendix.
    sample size is small, I shall look to my second method for
    confirmation.
 
-7. *t-test.* For it to be an exact test, the two-sample Walsh t-test
+7. *t-test.* For it to be an exact test, the two-sample Welch t-test
    requires that we assume the underlying pdfs are normal, although it
-   has been empiricallly observed that the test is somewhat robust to
+   has been empirically observed that the test is somewhat robust to
    deviations to normality. In fact strictly positive-valued
    continuous data cannot be perfectly normal and previous experience
    suggests the data will be skewed and that a log transformation
@@ -98,17 +100,17 @@ For details of the following analysis, see the Julia notebook in the Appendix.
    is the transformation we applied to our data before performing the
    t-test. 
    
-   Applying Walsh's two-sample t-test (to the supplied data, transformed) we  obtained a p-value of about
+   Applying Welch's two-sample t-test (to the supplied data, transformed) we  obtained a p-value of about
    0.0008, which is strong evidence to reject the null-hypothesis. In
    plainer language: **If transmission type makes *no*
-   difference to fuel efficiency, then the probablity that we could
+   difference to fuel efficiency, then the probability that we could
    have obtained the sample observed, or a more extreme sample, is about 1
    in 1000.**
    
    
 8. Despite the technical assumptions necessary to make our analysis, the clear conclusion of both methods is the same: **Automatic cars are more efficient than manual ones.**
    
-*Technical note:* The t-test applies to *means* not *medians*; however  our transformations map the median to the transform of the median, and for normal distributions the two notions conincide.
+*Technical note:* The t-test applies to *means* not *medians*; however  our transformations map the median to the transform of the median, and for normal distributions the two notions coincide.
 
 
 ## Appendix. Julia notebook for computations and plots
@@ -176,7 +178,7 @@ julia> n_auto = length(auto)
 13
 ````
 
-Gitter line plots of the data:
+Jitter line plots of the data:
 
 ````julia
 julia> plt1=plot(; title = "Fuel efficiency for 32 models of auto",
@@ -245,7 +247,7 @@ julia> right_per = quantile(simulated_differences, 1 - α/2)
 6.400000000000002
 ````
 
-### T-Test
+### t-Test
 
 We now test the null-hypothesis that the median mpg for manual cars
 and automatic cars are the same.
